@@ -44,7 +44,7 @@ joe = Person.new
 joe.set_name("Joe")
 puts joe.get_name
 
-# Example 3: 
+Example 3: In this example, there are a lot of repetitions in the methods defined in the class. 
 class Ticket
     def initialize(event, venue, date)
         @event = event
@@ -84,23 +84,24 @@ event.discount(15)
 event.price
 event.event
 
-# ticket = Object.new
+# Example 4: This example trims the code, not by reducing what the method does but by expressing the same function more concisely. This is achieved using the "attr_reader", "attr_writer" and symbols.
+class Ticket
+    attr_reader :event, :venue, :date, :price
+    attr_writer :price
 
-# def ticket.date
-#     "1903-01-02"
-# end
-# def ticket.venue
-#     "Town Hall"
-# end
-# def ticket.event
-#     "Author's reading"
-# end
-# def ticket.performer
-#     "Mark Twain"
-# end
-# def ticket.seat
-#     "Second Balcony, row J, seat 12"
-# end
-# def ticket.price
-#     5.50 
-# end
+    def initialize(event, venue, date)
+        @event = event
+        @venue = venue
+        @date = date
+        puts "Creating a new ticket for #{event}..."   
+    end
+
+    def set_price(amount)
+        @price = amount
+    end
+
+    def discount(percent)
+        @price = @price * (100 - percent) / 100.0
+        puts "The ticket for #{event} has been discounted $#{"%.2f" % percent} to $#{"%.2f" % @price}."
+    end
+end
