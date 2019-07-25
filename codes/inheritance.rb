@@ -50,3 +50,54 @@ puts second_ticket.date
 
 ticket.set_date("Today")
 puts ticket.get_date
+
+# Class inheritance
+class Probe
+    def deploy(deploy_time, return_time)
+        puts "Deploying..."
+    end
+
+    def take_sample
+    end
+end
+
+# Both MineralProble and AtmosphericProbe inherit from Probe (multiple inheritance)
+class MineralProbe < Probe
+    def deploy(deploy_time)
+        puts "Preparing sample chamber at #{deploy_time}..."
+        super(deploy_time, Time.now + 2 * 60 * 60)
+    end
+end
+
+class AtmosphericProbe < Probe
+    def take_sample
+    end
+end
+
+mineral_probe = MineralProbe.new
+mineral_probe.deploy Time.now
+
+=begin
+In OOP, "attr_writer" is a setter method;
+"attr_reader" is a getter method while "attr_accessor" is composed of both methods
+=end
+
+class Publication
+    attr_accessor :publisher
+    attr_writer :author
+    attr_reader :author
+end
+
+class Magazine < Publication
+    attr_accessor :editor
+end
+
+mag = Magazine.new
+mag.publisher = "Solomon Ezeobika"
+mag.editor = "Ibidapo Rasheed"
+mag.author = "Ben Bruce"
+puts "Mag is authored by #{mag.author}; published by #{mag.publisher} and edited by #{mag.editor}."
+
+# instance of PrimeTimes has both publisher and editor attributes
+class PrimeTimes < Magazine
+end

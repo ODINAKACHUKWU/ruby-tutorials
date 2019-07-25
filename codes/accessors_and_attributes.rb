@@ -105,3 +105,8 @@ class Ticket
         puts "The ticket for #{event} has been discounted $#{"%.2f" % percent} to $#{"%.2f" % @price}."
     end
 end
+
+# Final note:
+# Ticket#price refers to the instance method price in the class Ticket
+# Ticket.most_expensive refers to the class method most_expensive in the class Ticket
+# Ticket::most_expensive also refers to the class method Most_expensive method
