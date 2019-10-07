@@ -1,4 +1,5 @@
 def pluralize(count, message)
+
     if message.include? "s"
         print "#{message} has an s"
     elsif count > 1
@@ -6,6 +7,7 @@ def pluralize(count, message)
     elsif
         print message
     end
+    
 end
 
 # puts pluralize(20, "book")

@@ -53,25 +53,31 @@ puts ticket.get_date
 
 # Class inheritance
 class Probe
+
     def deploy(deploy_time, return_time)
         puts "Deploying..."
     end
 
     def take_sample
     end
+
 end
 
 # Both MineralProble and AtmosphericProbe inherit from Probe (multiple inheritance)
 class MineralProbe < Probe
+
     def deploy(deploy_time)
         puts "Preparing sample chamber at #{deploy_time}..."
         super(deploy_time, Time.now + 2 * 60 * 60)
     end
+
 end
 
 class AtmosphericProbe < Probe
+
     def take_sample
     end
+
 end
 
 mineral_probe = MineralProbe.new
@@ -83,13 +89,17 @@ In OOP, "attr_writer" is a setter method;
 =end
 
 class Publication
+
     attr_accessor :publisher
     attr_writer :author
     attr_reader :author
+
 end
 
 class Magazine < Publication
+
     attr_accessor :editor
+    
 end
 
 mag = Magazine.new
