@@ -6,6 +6,17 @@ regex_one = /hay/
 regex_two = %r{hay}
 regex_three = Regexp.new 'hay'
 
-puts regex_one
-puts regex_two
-puts regex_three
+m = /(\d+):(\d+)/.match "Time is 12:30am"
+puts m.pre_match
+puts m.post_match
+puts m[0]
+puts m[1]
+puts m[2]
+
+p $` # outputs pre_match
+p $' # outputs post_match
+p $& # outputs m[0]
+p $1 # outputs first_match
+p $2 # outputs second_match
+
+p "The time is 12:30am".scan /\d+/
