@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 # Topic: Bracket Lookup and Bracket Set Operations
 
-# Note: The Bracket Lookup and BracketSet methods have their arguments defined after the name.
+# NOTE: The Bracket Lookup and BracketSet methods have their arguments defined after the name.
 
 # Example:
 class Foo
+  def [](x)
+    @x = x
+    puts "Looking up item #{x}"
+  end
 
-    def [](x)
-        @x = x
-        puts "Looking up item #{x}"
-    end
-
-    def []=(x, y)
-        puts "Setting item #{x} to #{y}"
-    end
-
+  def []=(x, y)
+    puts "Setting item #{x} to #{y}"
+  end
 end
 
 f = Foo.new
