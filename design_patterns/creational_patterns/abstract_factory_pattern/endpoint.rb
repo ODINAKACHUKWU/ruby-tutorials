@@ -8,7 +8,7 @@ class Endpoint
     category = params[:category]
 
     # NOTE: This line is the key to this pattern. Furniture::Factory is
-    # the `abstract factory`which is responsible for creating the product
+    # the `abstract factory` which is responsible for creating the product
     # object.
     product = Furniture::Factory.for(product, category)
 
@@ -20,5 +20,6 @@ class Endpoint
   end
 end
 
-params = { product: 'chair', category: 'vintage' }
+# Play around with the product and category parameters
+params = { product: 'table', category: 'rub' }
 Endpoint.get(params)
