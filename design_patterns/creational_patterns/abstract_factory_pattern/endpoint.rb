@@ -7,7 +7,7 @@ class Endpoint
     product = params[:product]
     category = params[:category]
 
-    # NOTE: This line is the key to this pattern. Furniture::Factory is
+    # NOTE: This line is the key to this pattern.   `Furniture::Factory` is
     # the `abstract factory` which is responsible for creating the product
     # object.
     product = Furniture::Factory.for(product, category)
